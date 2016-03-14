@@ -13,22 +13,41 @@
 
 static NSString *cellId=@"cell";
 
-@interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,VKDrawLayerProcotol>
+{
+    UICollectionViewFlowLayout *collectionLayout;
 
+}
 
 @property(nonatomic,weak)IBOutlet VKDrawLayer *canvas;
 @property(nonatomic,weak)IBOutlet UICollectionView *thumbList;
-
 @end
 
 @implementation ViewController
 
+
+-(void)didDrawLine:(VKPicLayer *)layer
+{
+    [self.thumbList reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.thumbList registerClass:[ThumbListCell class] forCellWithReuseIdentifier:cellId];
+    collectionLayout=[[UICollectionViewFlowLayout alloc]init];
+    collectionLayout.scrollDirection=UICollectionViewScrollDirectionHorizontal;
+    collectionLayout.itemSize=CGSizeMake(60, 60);
+    self.canvas.delegate=self;
+    self.thumbList.backgroundColor=[UIColor whiteColor];
+    self.thumbList.collectionViewLayout=collectionLayout;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+
+-(IBAction)newL
+{
+    [self.canvas CreateNewLayer];
+}
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -54,7 +73,6 @@ static NSString *cellId=@"cell";
     switch (index) {
         case 0:
             return [UIColor redColor];
-            break;
         case 1:
             return [UIColor yellowColor];
         case 2:
@@ -74,6 +92,7 @@ static NSString *cellId=@"cell";
     if (motion == UIEventSubtypeMotionShake) {
         int color=arc4random() %4;
         int width=arc4random() %8+6;
+        NSLog(@"color %d,width %d",color,width);
         self.canvas.lineColor=[self colorList:color];
         self.canvas.lineWidth=width;
     }

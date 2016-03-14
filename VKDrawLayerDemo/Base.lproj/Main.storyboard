@@ -26,8 +26,11 @@
                                     <constraint firstAttribute="width" secondItem="fx6-k1-XM7" secondAttribute="height" multiplier="1:1" id="TyG-X5-w0n"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hs9-h4-AYH">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hs9-h4-AYH">
                                 <rect key="frame" x="0.0" y="668" width="414" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="TrL-St-DNz"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="atQ-9k-eaw">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -50,13 +53,29 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zdi-p5-dPJ"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcd-PY-R3M">
+                                <rect key="frame" x="146" y="418" width="123" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Yhe-zp-NAO"/>
+                                    <constraint firstAttribute="width" constant="123" id="iRh-e9-Sde"/>
+                                </constraints>
+                                <state key="normal" title="新图层"/>
+                                <connections>
+                                    <action selector="newL" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLv-XT-iCf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fx6-k1-XM7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3Gf-J5-w4c"/>
+                            <constraint firstItem="kcd-PY-R3M" firstAttribute="top" secondItem="fx6-k1-XM7" secondAttribute="bottom" constant="32" id="6Ke-Zq-RNf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hs9-h4-AYH" secondAttribute="trailing" constant="-20" id="AiW-FG-rWT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fx6-k1-XM7" secondAttribute="trailing" constant="27" id="FZC-sS-BKs"/>
                             <constraint firstItem="fx6-k1-XM7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="86" id="GCX-b4-l1c"/>
                             <constraint firstItem="fx6-k1-XM7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="46" id="IJA-pG-HNX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hs9-h4-AYH" secondAttribute="bottom" id="KWX-IE-K1o"/>
+                            <constraint firstItem="hs9-h4-AYH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="UCA-kC-uew"/>
+                            <constraint firstItem="kcd-PY-R3M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dQ2-8Z-GS4"/>
                             <constraint firstItem="fx6-k1-XM7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="27" id="pNw-e8-OoE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fx6-k1-XM7" secondAttribute="trailing" constant="87" id="pVt-If-Kn9"/>
                         </constraints>
