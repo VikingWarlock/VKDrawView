@@ -10,4 +10,40 @@
 
 @implementation VKPicLayer
 
+-(void)drawOnTheContext
+{
+
+}
+
+
+@end
+
+
+@implementation VKDrawLine
+
+-(void)drawOnTheContext
+{
+    [super drawOnTheContext];
+}
+
+@end
+
+@implementation VKDrawImage
+
+-(void)drawOnTheContext
+{
+
+    
+}
+
+@end
+
+@implementation VKDrawText
+
+-(void)drawOnTheContext
+{
+
+    
+}
+
 @end

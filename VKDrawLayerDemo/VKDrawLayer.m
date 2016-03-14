@@ -22,8 +22,77 @@
 
 @implementation VKDrawLayer
 
+#pragma Public Method
 
 
+-(void)doneEdit
+{
+
+}
+
+-(void)mirrorPic
+{
+
+}
+
+-(void)addPic:(UIImage *)image
+{
+
+}
+
+-(void)addText:(NSString *)text
+{
+
+}
+
+-(void)removeLayer:(VKPicLayer *)layer
+{
+
+}
+
+-(void)insertLayer:(VKPicLayer *)layer atIndex:(NSUInteger)index
+{
+
+}
+
+-(BOOL)undo
+{
+    return NO;
+
+}
+
+-(BOOL)canUndo
+{
+    return NO;
+
+}
+
+-(BOOL)redo
+{
+    return NO;
+
+}
+
+-(BOOL)canRedo
+{
+    return NO;
+}
+
+-(NSArray *)operations
+{
+    return [NSArray arrayWithArray:operationsList];
+}
+
+-(NSArray *)LayerList
+{
+    return [NSArray arrayWithArray:canvasList];
+}
+
+
+-(void)setCanvasBackgroundColor:(UIColor *)canvasBackgroundColor
+{
+    self.backgroundColor=canvasBackgroundColor;
+}
 
 #pragma Touch
 
@@ -67,7 +136,17 @@
 #pragma Redraw
 -(void)drawRect:(CGRect)rect
 {
-
+    for(VKPicLayer *item in self.LayerList)
+    {
+        if ([item isKindOfClass:[VKDrawLine class]]) {
+            
+        }else if ([item isKindOfClass:[VKDrawImage class]]){
+        
+        }else if ([item isKindOfClass:[VKDrawText class]]){
+        
+        }
+    }
+    CGContextRef ctx= UIGraphicsGetCurrentContext();
 
 }
 

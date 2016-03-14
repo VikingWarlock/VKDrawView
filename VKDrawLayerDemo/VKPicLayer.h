@@ -18,6 +18,7 @@
 @property(nonatomic,assign)BOOL showBorder;
 @property(nonatomic,assign)UIColor *borderColor;
 
+-(void)drawOnTheContext;
 
 @end
 
