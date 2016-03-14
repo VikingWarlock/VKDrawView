@@ -68,6 +68,15 @@ static NSString *cellId=@"cell";
 }
 
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    VKPicLayer *item=self.canvas.LayerList[indexPath.item];
+    BOOL visible=item.visible;
+    item.visible=!visible;
+    [self.canvas setNeedsDisplay];
+}
+
 -(UIColor *)colorList:(int)index
 {
     switch (index) {
@@ -92,7 +101,6 @@ static NSString *cellId=@"cell";
     if (motion == UIEventSubtypeMotionShake) {
         int color=arc4random() %4;
         int width=arc4random() %8+6;
-        NSLog(@"color %d,width %d",color,width);
         self.canvas.lineColor=[self colorList:color];
         self.canvas.lineWidth=width;
     }

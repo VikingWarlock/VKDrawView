@@ -16,6 +16,9 @@
     CGPoint DrawPoint2;
     NSMutableArray *operationsList;
     NSMutableArray *canvasList;
+    
+    UIColor *cc;
+    CGFloat cw;
 }
 @end
 
@@ -59,11 +62,23 @@
     operationsList=[NSMutableArray array];
     DrawPoint1=CGPointZero;
     DrawPoint2=CGPointZero;
-    _lineColor=[UIColor greenColor];
-    _lineWidth=10;
+    self.lineColor=[UIColor greenColor];
+    self.lineWidth=10;
 }
 
 #pragma Public Method
+
+-(void)setLineWidth:(CGFloat)lineWidth
+{
+    TempLine.LineWidth=lineWidth;
+    cw=lineWidth;
+}
+
+-(void)setLineColor:(UIColor *)lineColor
+{
+    TempLine.LineColor=lineColor;
+    cc=[lineColor copy];
+}
 
 
 -(void)doneEdit
@@ -140,8 +155,9 @@
 {
     if (TempLine==nil) {
         TempLine=[[VKDrawLine alloc]initWithDrawLayer:self];
-        TempLine.LineColor=_lineColor;
-        TempLine.LineWidth=_lineWidth;
+        TempLine.LineColor=cc;
+        TempLine.LineWidth=cw;
+        [canvasList addObject:TempLine];
     }
     UITouch *touch = [touches anyObject];
     DrawPoint1=[touch locationInView:self];
@@ -174,9 +190,6 @@
     if (![operationsList containsObject:TempLine]) {
         [operationsList addObject:TempLine];
     }
-    if (![canvasList containsObject:TempLine]) {
-        [canvasList addObject:TempLine];
-    }
     
     [TempLine doneEdit];
     
@@ -201,13 +214,17 @@
 {
     for(VKPicLayer *item in self.LayerList)
     {
+        if (item.visible==NO) {
+            continue;
+        }
+
         if ([item isKindOfClass:[VKDrawLine class]]) {
             [item drawOnTheContext];
         }
      
     }
     
-    if(TempLine){
+    if(TempLine&&TempLine.visible){
         [TempLine drawOnTheContext];
     }
     

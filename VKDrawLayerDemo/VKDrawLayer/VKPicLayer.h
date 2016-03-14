@@ -27,16 +27,17 @@
 @property(nonatomic,assign)BOOL showBorder;
 @property(nonatomic,assign)UIColor *borderColor;
 @property(nonatomic,readonly)UIImage *SmallPic;
-
+@property(nonatomic,assign)BOOL visible;
 -(void)drawOnTheContext;
 
 @end
 
 
 @interface VKDrawLine : VKPicLayer
-@property (nonatomic) CGMutablePathRef LinePath;
+//@property (nonatomic) CGMutablePathRef TempLinePath;
+@property (nonatomic) NSMutableArray *LinePaths;
 @property (nonatomic,assign) CGFloat LineWidth;
-@property (nonatomic,assign) UIColor *LineColor;
+@property (nonatomic,copy) UIColor *LineColor;
 -(void)addLineWithPoint1:(CGPoint)point1 andPoint2:(CGPoint)point2;
 @end
 

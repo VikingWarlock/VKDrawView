@@ -46,7 +46,7 @@
 
 @property(nonatomic,weak)UIView *controlView;
 
-@property(nonatomic,assign)UIColor *canvasBackgroundColor;
+@property(nonatomic,copy)UIColor *canvasBackgroundColor;
 
 @property(nonatomic,assign)UIColor *lineColor;
 @property(nonatomic,assign)CGFloat lineWidth;
