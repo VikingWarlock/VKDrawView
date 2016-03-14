@@ -10,9 +10,15 @@
 @import UIKit;
 
 @class VKDrawLayer;
+@class VKPicLayer;
+
+//void drawVKlayerOntheContext(CGContextRef ctx,VKPicLayer *layer);
+
 
 @interface VKPicLayer : NSObject
-
+{
+    VKDrawLayer *superView;
+}
 -(instancetype)initWithDrawLayer:(VKDrawLayer*)layer;
 
 @property(nonatomic,assign)BOOL showBorder;

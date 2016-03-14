@@ -22,6 +22,47 @@
 
 @implementation VKDrawLayer
 
+
+#pragma initMethod
+
+-(instancetype)init
+{
+    self=[super init];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self=[super initWithCoder:aDecoder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    self=[super initWithFrame:frame];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+
+-(void)setup
+{
+    canvasList=[NSMutableArray array];
+    operationsList=[NSMutableArray array];
+    DrawPoint1=CGPointZero;
+    DrawPoint2=CGPointZero;
+    _lineColor=[UIColor greenColor];
+    _lineWidth=10;
+}
+
 #pragma Public Method
 
 
@@ -99,8 +140,12 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     TempLine=[[VKDrawLine alloc]initWithDrawLayer:self];
+    TempLine.LineColor=_lineColor;
+    TempLine.LineWidth=_lineWidth;
     UITouch *touch = [touches anyObject];
     DrawPoint1=[touch locationInView:self];
+    
+//    NSLog(@"start point %f,%f",DrawPoint1.x,DrawPoint1.y);
 }
 
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -111,6 +156,7 @@
         [TempLine addLineWithPoint1:DrawPoint1 andPoint2:DrawPoint2];
     }
     DrawPoint1=DrawPoint2;
+//    NSLog(@"now point %f,%f",DrawPoint1.x,DrawPoint1.y);
     [self setNeedsDisplay];
 }
 
@@ -118,6 +164,7 @@
 {
     UITouch *touch=[touches anyObject];
     DrawPoint2=[touch locationInView:self];
+//    NSLog(@"current point %f,%f",DrawPoint2.x,DrawPoint2.y);
     if (TempLine) {
         [TempLine addLineWithPoint1:DrawPoint1 andPoint2:DrawPoint2];
     }
@@ -126,6 +173,7 @@
     [operationsList addObject:TempLine];
     [canvasList addObject:TempLine];
     TempLine=nil;
+    [self setNeedsDisplay];
 }
 
 -(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -139,15 +187,15 @@
     for(VKPicLayer *item in self.LayerList)
     {
         if ([item isKindOfClass:[VKDrawLine class]]) {
-            
-        }else if ([item isKindOfClass:[VKDrawImage class]]){
-        
-        }else if ([item isKindOfClass:[VKDrawText class]]){
-        
+            [item drawOnTheContext];
         }
+     
     }
-    CGContextRef ctx= UIGraphicsGetCurrentContext();
-
+    
+    if(TempLine){
+        [TempLine drawOnTheContext];
+    }
+    
 }
 
 
