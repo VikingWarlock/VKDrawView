@@ -7,17 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0914E59D1C96FC0F00244882 /* ThumbListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0914E59C1C96FC0F00244882 /* ThumbListCell.m */; };
+		0914E5A41C96FC4C00244882 /* VKDrawLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0914E5A11C96FC4C00244882 /* VKDrawLayer.m */; };
+		0914E5A51C96FC4C00244882 /* VKPicLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0914E5A31C96FC4C00244882 /* VKPicLayer.m */; };
 		E4A293E81C94335100E68A95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A293E71C94335100E68A95 /* main.m */; };
 		E4A293EB1C94335100E68A95 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A293EA1C94335100E68A95 /* AppDelegate.m */; };
 		E4A293EE1C94335100E68A95 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A293ED1C94335100E68A95 /* ViewController.m */; };
 		E4A293F11C94335100E68A95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4A293EF1C94335100E68A95 /* Main.storyboard */; };
 		E4A293F31C94335100E68A95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A293F21C94335100E68A95 /* Assets.xcassets */; };
 		E4A293F61C94335100E68A95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4A293F41C94335100E68A95 /* LaunchScreen.storyboard */; };
-		E4A293FF1C94336C00E68A95 /* VKDrawLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A293FE1C94336C00E68A95 /* VKDrawLayer.m */; };
-		E4A294021C94338C00E68A95 /* VKPicLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A294011C94338C00E68A95 /* VKPicLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0914E59B1C96FC0F00244882 /* ThumbListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbListCell.h; sourceTree = "<group>"; };
+		0914E59C1C96FC0F00244882 /* ThumbListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbListCell.m; sourceTree = "<group>"; };
+		0914E5A01C96FC4C00244882 /* VKDrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKDrawLayer.h; sourceTree = "<group>"; };
+		0914E5A11C96FC4C00244882 /* VKDrawLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKDrawLayer.m; sourceTree = "<group>"; };
+		0914E5A21C96FC4C00244882 /* VKPicLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKPicLayer.h; sourceTree = "<group>"; };
+		0914E5A31C96FC4C00244882 /* VKPicLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKPicLayer.m; sourceTree = "<group>"; };
 		E4A293E31C94335100E68A95 /* VKDrawLayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKDrawLayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A293E71C94335100E68A95 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4A293E91C94335100E68A95 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,10 +35,6 @@
 		E4A293F21C94335100E68A95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4A293F51C94335100E68A95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4A293F71C94335100E68A95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4A293FD1C94336C00E68A95 /* VKDrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKDrawLayer.h; sourceTree = "<group>"; };
-		E4A293FE1C94336C00E68A95 /* VKDrawLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKDrawLayer.m; sourceTree = "<group>"; };
-		E4A294001C94338C00E68A95 /* VKPicLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKPicLayer.h; sourceTree = "<group>"; };
-		E4A294011C94338C00E68A95 /* VKPicLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKPicLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,9 +48,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0914E59F1C96FC4C00244882 /* VKDrawLayer */ = {
+			isa = PBXGroup;
+			children = (
+				0914E5A01C96FC4C00244882 /* VKDrawLayer.h */,
+				0914E5A11C96FC4C00244882 /* VKDrawLayer.m */,
+				0914E5A21C96FC4C00244882 /* VKPicLayer.h */,
+				0914E5A31C96FC4C00244882 /* VKPicLayer.m */,
+			);
+			name = VKDrawLayer;
+			path = VKDrawLayerDemo/VKDrawLayer;
+			sourceTree = "<group>";
+		};
 		E4A293DA1C94335100E68A95 = {
 			isa = PBXGroup;
 			children = (
+				0914E59F1C96FC4C00244882 /* VKDrawLayer */,
 				E4A293E51C94335100E68A95 /* VKDrawLayerDemo */,
 				E4A293E41C94335100E68A95 /* Products */,
 			);
@@ -73,10 +89,8 @@
 				E4A293F41C94335100E68A95 /* LaunchScreen.storyboard */,
 				E4A293F71C94335100E68A95 /* Info.plist */,
 				E4A293E61C94335100E68A95 /* Supporting Files */,
-				E4A293FD1C94336C00E68A95 /* VKDrawLayer.h */,
-				E4A293FE1C94336C00E68A95 /* VKDrawLayer.m */,
-				E4A294001C94338C00E68A95 /* VKPicLayer.h */,
-				E4A294011C94338C00E68A95 /* VKPicLayer.m */,
+				0914E59B1C96FC0F00244882 /* ThumbListCell.h */,
+				0914E59C1C96FC0F00244882 /* ThumbListCell.m */,
 			);
 			path = VKDrawLayerDemo;
 			sourceTree = "<group>";
@@ -159,10 +173,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4A293FF1C94336C00E68A95 /* VKDrawLayer.m in Sources */,
 				E4A293EE1C94335100E68A95 /* ViewController.m in Sources */,
+				0914E5A51C96FC4C00244882 /* VKPicLayer.m in Sources */,
+				0914E5A41C96FC4C00244882 /* VKDrawLayer.m in Sources */,
 				E4A293EB1C94335100E68A95 /* AppDelegate.m in Sources */,
-				E4A294021C94338C00E68A95 /* VKPicLayer.m in Sources */,
+				0914E59D1C96FC0F00244882 /* ThumbListCell.m in Sources */,
 				E4A293E81C94335100E68A95 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +329,7 @@
 				E4A293FC1C94335100E68A95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

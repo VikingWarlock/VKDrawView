@@ -8,10 +8,16 @@
 
 #import "ViewController.h"
 #import "VKDrawLayer.h"
+#import "VKPicLayer.h"
+#import "ThumbListCell.h"
 
-@interface ViewController ()
+static NSString *cellId=@"cell";
+
+@interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
 
 @property(nonatomic,weak)IBOutlet VKDrawLayer *canvas;
+@property(nonatomic,weak)IBOutlet UICollectionView *thumbList;
 
 @end
 
@@ -19,7 +25,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.thumbList registerClass:[ThumbListCell class] forCellWithReuseIdentifier:cellId];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.canvas.LayerList.count;
+}
+
+-(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ThumbListCell *cell=(ThumbListCell*)[collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    VKPicLayer *item=self.canvas.LayerList[indexPath.item];
+    cell.imageView.image=item.SmallPic;
+    return cell;
 }
 
 
