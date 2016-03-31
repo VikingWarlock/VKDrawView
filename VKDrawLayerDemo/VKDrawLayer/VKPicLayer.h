@@ -19,6 +19,7 @@
 {
     VKDrawLayer *superContentView;
     UIImage *thumb;
+    
 }
 -(instancetype)initWithDrawLayer:(VKDrawLayer*)layer;
 

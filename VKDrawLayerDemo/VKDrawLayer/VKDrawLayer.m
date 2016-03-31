@@ -19,6 +19,8 @@
     
     UIColor *cc;
     CGFloat cw;
+    
+    BOOL needRedrawSavedLayer;
 }
 @end
 
@@ -59,11 +61,17 @@
 -(void)setup
 {
     canvasList=[NSMutableArray array];
+    VKDrawImage *i=[[VKDrawImage alloc]initWithDrawLayer:self];
+    i.image=[UIImage imageNamed:@"04.png"];
+    i.visible=YES;
+    
+    [canvasList addObject:i];
     operationsList=[NSMutableArray array];
     DrawPoint1=CGPointZero;
     DrawPoint2=CGPointZero;
     self.lineColor=[UIColor greenColor];
     self.lineWidth=10;
+    needRedrawSavedLayer=NO;
 }
 
 #pragma Public Method
@@ -212,16 +220,28 @@
 #pragma Redraw
 -(void)drawRect:(CGRect)rect
 {
-    for(VKPicLayer *item in self.LayerList)
+    if (needRedrawSavedLayer||YES) {
+        for(VKPicLayer *item in self.LayerList)
+        {
+            if (item.visible==NO) {
+                continue;
+            }
+            
+            if ([item isKindOfClass:[VKDrawLine class]]) {
+                [item drawOnTheContext];
+                continue;
+            }
+            
+            if ([item isKindOfClass:[VKDrawImage class]]) {
+                [item drawOnTheContext];
+                continue;
+            }
+            
+            
+        }
+    }else
     {
-        if (item.visible==NO) {
-            continue;
-        }
-
-        if ([item isKindOfClass:[VKDrawLine class]]) {
-            [item drawOnTheContext];
-        }
-     
+        
     }
     
     if(TempLine&&TempLine.visible){

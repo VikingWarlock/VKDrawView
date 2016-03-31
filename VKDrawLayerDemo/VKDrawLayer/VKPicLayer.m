@@ -162,11 +162,14 @@
         CGContextSetLineWidth(ctx, currentWidth);
         CGContextStrokePath(ctx);
     }
+//    CGContextRelease(ctx);
+
 }
 
 -(void)doneEdit
 {
     [super doneEdit];
+    
 //    CGRect bound=CGPathGetBoundingBox(self.LinePath);
     UIGraphicsBeginImageContextWithOptions(superContentView.frame.size, NO, 0);
     CGContextRef ctx=UIGraphicsGetCurrentContext();
@@ -174,6 +177,8 @@
     CGContextSetFillColorWithColor(ctx, [UIColor blackColor].CGColor);
     CGContextFillPath(ctx);
     [self drawOnTheContext];
+//    CGContextSaveGState(ctx);
+//    CGContextRestoreGState(ctx);
     UIImage *thumbImage=UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     thumb=thumbImage;
@@ -185,7 +190,16 @@
 
 -(void)drawOnTheContext
 {
+    [super drawOnTheContext];
+    CGContextRef ctx=UIGraphicsGetCurrentContext();
+    CGContextSetBlendMode(ctx, kCGBlendModeNormal);
+    CGContextDrawImage(ctx, CGRectMake(0, 0, superContentView.frame.size.width, superContentView.frame.size.height), self.image.CGImage);
+//    CGContextRelease(ctx);
+}
 
+-(void)doneEdit
+{
+    [super doneEdit];
     
 }
 
@@ -195,8 +209,16 @@
 
 -(void)drawOnTheContext
 {
+    [super drawOnTheContext];
+    CGContextRef ctx=UIGraphicsGetCurrentContext();
 
-    
+//    CGContextRelease(ctx);
+
+}
+
+-(void)doneEdit
+{
+    [super doneEdit];
 }
 
 @end
